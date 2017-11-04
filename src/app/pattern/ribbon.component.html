@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col">
+        <div *ngFor="let stripe of segments; let i = index" class="stripe">
+            <div *ngFor="let segment of stripe">
+               <div class="segment" [ngStyle]="{'background': palette[segment.color]}"></div>
+            </div>
+        </div>
+    </div>
+</div>

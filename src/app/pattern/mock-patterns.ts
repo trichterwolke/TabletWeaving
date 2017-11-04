@@ -3,27 +3,39 @@ import { Tablet } from './tablet';
 
 export const PATTERNS: Pattern[] = [
     {
-        name: 'Simple Caret', palette: ['#111111', '#dddddd', '#ffff00', '#cc11cc'], tablets: [
+        name: 'Simple Caret',
+        palette: ['#a3b4ff', '#102fb7'],
+        tablets: [
             { threading: 'Z', colors: [0, 0, 0, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'Z', colors: [2, 2, 2, 2] },
             { threading: 'Z', colors: [0, 0, 0, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'Z', colors: [2, 2, 2, 2] },
-            { threading: 'Z', colors: [0, 0, 0, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'Z', colors: [2, 2, 2, 2] },
+            { threading: 'Z', colors: [1, 0, 0, 0] },
+            { threading: 'Z', colors: [0, 1, 0, 0] },
+            { threading: 'Z', colors: [0, 0, 1, 0] },
+            { threading: 'Z', colors: [0, 0, 0, 1] },
+            { threading: 'S', colors: [0, 0, 0, 1] },
+            { threading: 'S', colors: [0, 0, 1, 0] },
+            { threading: 'S', colors: [0, 1, 0, 0] },
+            { threading: 'S', colors: [1, 0, 0, 0] },
+            { threading: 'S', colors: [0, 0, 0, 0] },
+            { threading: 'S', colors: [0, 0, 0, 0] },
         ]
     },
     {
-        name: 'Snakebite', palette: ['Red', 'White', 'Blue'], tablets: [
+        name: 'Diamonds',
+        palette: ['#232266', '#BB1829', '#F6B034'],
+        tablets: [
             { threading: 'Z', colors: [0, 0, 0, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'S', colors: [1, 0, 1, 0] },
-            { threading: 'Z', colors: [2, 2, 2, 2] }
+            { threading: 'Z', colors: [0, 0, 0, 0] },
+            { threading: 'Z', colors: [2, 1, 2, 1] },
+            { threading: 'Z', colors: [1, 2, 1, 0] },
+            { threading: 'Z', colors: [2, 1, 0, 2] },
+            { threading: 'Z', colors: [1, 0, 2, 2] },
+            { threading: 'S', colors: [1, 0, 2, 2] },
+            { threading: 'S', colors: [2, 1, 0, 2] },
+            { threading: 'S', colors: [1, 2, 1, 0] },
+            { threading: 'S', colors: [2, 1, 2, 1] },
+            { threading: 'S', colors: [0, 0, 0, 0] },
+            { threading: 'S', colors: [0, 0, 0, 0] },
         ]
     },
 ]

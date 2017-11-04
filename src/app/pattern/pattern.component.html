@@ -1,7 +1,11 @@
 <div class="row">
     <div class="col">
-        <div class="threading"  *ngFor="let tablet of tablets">
-            {{ tablet.threading }}
-        </div>        
+        <div class="stripe" *ngFor="let tablet of tablets; let i = index">
+            <div>{{ i + 1}}</div>
+            <div *ngFor="let color of tablet.colors">
+                <div class="pattern-item" [ngStyle]="{'background': palette[color]}"></div>
+            </div>
+            <div>{{ tablet.threading }}</div>
+        </div>
     </div>
 </div>

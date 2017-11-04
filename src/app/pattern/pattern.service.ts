@@ -10,6 +10,6 @@ export class PatternService {
     }
 
     findByName(name: string): Promise<Pattern> {
-        return Promise.resolve(PATTERNS[0]);
+        return Promise.resolve(PATTERNS[1]);
     }
 }

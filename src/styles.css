@@ -6,3 +6,9 @@
    didn't mention
 */
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+div.stripe {
+    float: left;
+    width: 24px;
+    text-align: center;
+}

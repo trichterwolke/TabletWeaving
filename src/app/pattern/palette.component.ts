@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { Tablet } from './tablet'
+import { Tablet } from './tablet';
 import { Pattern } from './pattern';
 import { PatternService } from './pattern.service';
 
@@ -13,7 +13,7 @@ import { PatternService } from './pattern.service';
 })
 export class PaletteComponent implements OnInit {
 
-    palette: string[];
+    palette: string[];    
 
     constructor(private patternService: PatternService) {
         this.patternService = patternService;

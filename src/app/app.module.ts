@@ -5,14 +5,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { PatternComponent } from "./pattern/pattern.component";
 import { PaletteComponent } from "./pattern/palette.component";
-import { StrapComponent } from "./pattern/strap.component";
+import { RibbonComponent } from "./pattern/ribbon.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     PatternComponent,
     PaletteComponent,
-    StrapComponent
+    RibbonComponent
   ],
   imports: [
     BrowserModule,

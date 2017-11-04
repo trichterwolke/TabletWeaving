@@ -14,6 +14,7 @@ import { PatternService } from './pattern.service';
 export class PatternComponent implements OnInit {
 
     tablets: Tablet[];
+    palette: string[];
 
     constructor(private patternService: PatternService) {
         this.patternService = patternService;
@@ -21,7 +22,10 @@ export class PatternComponent implements OnInit {
 
     loadPattern(): void {
         this.patternService.findByName('indiffrent')
-            .then(r => this.tablets = r.tablets);
+            .then(r => {
+                this.tablets = r.tablets;
+                this.palette = r.palette;
+            });
     }
 
     ngOnInit(): void {
