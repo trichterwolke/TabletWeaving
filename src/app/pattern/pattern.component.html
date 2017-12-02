@@ -1,5 +1,11 @@
 <div class="row">
     <div class="col">
+        <div class="stripe">
+            <div class="pattern-item" *ngFor="let ordinal of ordinals; let i = index">
+                <div>&nbsp;</div>
+                <div>{{ ordinal }}</div>
+            </div>
+        </div>
         <div class="stripe" *ngFor="let tablet of tablets; let i = index">
             <div>{{ i + 1}}</div>
             <div *ngFor="let color of tablet.colors">

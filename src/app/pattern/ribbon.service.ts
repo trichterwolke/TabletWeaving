@@ -29,13 +29,38 @@ export class RibbonService {
 
             result.push({
                 color: tablet.colors[colorIndex],
-                shape: 1,
+                shape: this.getShape(tablet.threading, index),
             });
             index++;
         }
 
         return result;
     }
+
+    private getShape(threading: string, index: number) {
+        if (threading === 'S') {
+            if (index % 8 === 0) {
+                return 3;
+            }            
+
+            if (index % 8 === 4) {
+                return 4;
+            }
+            return index % 8 > 4 ? 1 : 2;
+        }
+        else {
+            if (index % 8 === 0) {
+                return 4;
+            }
+
+            if (index % 8 === 4) {
+                return 3;
+            }
+
+            return index % 8 > 4 ? 2 : 1;
+        }
+    }
+
 }
 
 /*

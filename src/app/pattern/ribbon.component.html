@@ -1,8 +1,24 @@
 <div class="row">
     <div class="col">
+        <div class="stripe">
+            <div class="label">
+                Weaving Direction →
+            </div>
+        </div>
         <div *ngFor="let stripe of segments; let i = index" class="stripe">
             <div *ngFor="let segment of stripe">
-               <div class="segment" [ngStyle]="{'background': palette[segment.color]}"></div>
+                <svg *ngIf="segment.shape === 1" class="segment" viewBox="0 0 1 2" [ngStyle]="{'fill': palette[segment.color]}">
+                    <path d="M0,2 V1 L1,0 V1 L0,2 Z" />
+                </svg>
+                <svg *ngIf="segment.shape === 2" class="segment" viewBox="0 0 1 2" [ngStyle]="{'fill': palette[segment.color]}">
+                    <path d="M0,0 L1,1 V2 L0,1 V0 Z" />
+                </svg>
+                <svg *ngIf="segment.shape === 3" class="segment" viewBox="0 0 1 2" [ngStyle]="{'fill': palette[segment.color]}">
+                    <path d="M0,1 L1,0 V2 L0,1 Z" />
+                </svg>
+                <svg *ngIf="segment.shape === 4" class="segment" viewBox="0 0 1 2" [ngStyle]="{'fill': palette[segment.color]}">
+                    <path d="M0,0 L1,1 L0,2 V0 Z" />
+                </svg>
             </div>
         </div>
     </div>

@@ -1,9 +1,19 @@
-div.segment {
-    width: 24px;
-    margin: 2px 0px;
-    height: 24px;
+div.stripe {
+    width: 25px;
+    margin: 16px 0 16px 1px;    
+    position: relative;
+    height: 100%;
 }
 
-div.stripe {
-    margin: 1px;
+div.label {       
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    font-size: 20px;        
+    position: absolute;
+    bottom: 30px;
+    line-height: 100%;
+}
+
+svg.segment {
+    margin: -14.5px 0;
 }

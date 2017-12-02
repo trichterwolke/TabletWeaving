@@ -13,10 +13,12 @@ import { PatternService } from './pattern.service';
 })
 export class PatternComponent implements OnInit {
 
+    ordinals: string[];
     tablets: Tablet[];
     palette: string[];
 
     constructor(private patternService: PatternService) {
+        this.ordinals = ['A', 'B', 'C', 'D'];
         this.patternService = patternService;
     }
 
