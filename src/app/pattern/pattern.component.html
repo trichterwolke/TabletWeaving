@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col">
         <div class="stripe">
-            <div class="pattern-item" *ngFor="let ordinal of ordinals; let i = index">
+            <div class="pattern-item" *ngFor="let ordinal of ordinals.reverse()">
                 <div>&nbsp;</div>
                 <div>{{ ordinal }}</div>
             </div>
         </div>
         <div class="stripe" *ngFor="let tablet of tablets; let i = index">
             <div>{{ i + 1}}</div>
-            <div *ngFor="let color of tablet.colors">
+            <div *ngFor="let color of tablet.colors.reverse()">
                 <div class="pattern-item" [ngStyle]="{'background': palette[color]}"></div>
             </div>
             <div>{{ tablet.threading }}</div>

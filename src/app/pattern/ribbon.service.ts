@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Pattern } from './pattern';
 import { Tablet } from './tablet';
 import { Segment } from './segment';
+import { digest } from '@angular/compiler/src/i18n/serializers/xmb';
 
 @Injectable()
 export class RibbonService {
@@ -19,9 +20,9 @@ export class RibbonService {
 
     private createStripe(tablet: Tablet): Segment[] {
         let result = new Array();
-        let index = 0;
+        let index = 15;
         let colorStep: number;
-        while (index < 16) {
+        while (index >= 0) {
             let length = tablet.colors.length;
             let colorIndex = index % (length * 2) >= length
                 ? length - 1 - index % length
@@ -31,40 +32,37 @@ export class RibbonService {
                 color: tablet.colors[colorIndex],
                 shape: this.getShape(tablet.threading, index),
             });
-            index++;
+            index--;
         }
 
         return result;
     }
 
     private getShape(threading: string, index: number) {
-        if (threading === 'S') {
-            if (index % 8 === 0) {
-                return 3;
-            }            
-
-            if (index % 8 === 4) {
-                return 4;
-            }
-            return index % 8 > 4 ? 1 : 2;
+        if (index % 4 === 0 && index !== 0 ) {
+            return 0;
         }
-        else {
-            if (index % 8 === 0) {
-                return 4;
-            }
 
-            if (index % 8 === 4) {
-                return 3;
-            }
+        let direction = threading === 'S';
 
-            return index % 8 > 4 ? 2 : 1;
+        let type = index % 4 === 3 && index != 15 ? 2 : 1;
+
+        if (index % 8 > 4) {
+            direction = !direction;
+        }
+
+        if (type === 1) {
+            return direction ? 1 : 2;
+        } else if (type === 2) {
+            return direction ? 4 : 3;
         }
     }
-
 }
 
 /*
-1.  2.  3.  4.
-/|  |\  /|  |\
-|/  \|  \|  |/
+1.   2.   3.   4.
+/ |  | \  / |  | \
+| /  \ |  | |  | |
+          | |  | |
+          \ |  | /
 */

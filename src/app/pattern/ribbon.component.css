@@ -7,11 +7,10 @@ div.stripe {
 
 div.label {       
     writing-mode: vertical-lr;
-    transform: rotate(-180deg);
-    font-size: 20px;        
+    transform: rotate(-180deg);        
     position: absolute;
     bottom: 30px;
-    line-height: 100%;
+    /*line-height: 100%;*/
 }
 
 svg.segment {
