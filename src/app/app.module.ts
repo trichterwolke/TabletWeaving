@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { PatternComponent } from "./pattern/pattern.component";
-import { PaletteComponent } from "./pattern/palette.component";
-import { RibbonComponent } from "./pattern/ribbon.component";
+import { PatternComponent } from './pattern/pattern.component';
+import { PaletteComponent } from './pattern/palette.component';
+import { RibbonComponent } from './pattern/ribbon.component';
+import { PatternSharedDataService } from './pattern/pattern.shareddata.service'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { RibbonComponent } from "./pattern/ribbon.component";
     BrowserModule,
     NgbModule.forRoot(),
   ],
-  providers: [],
+  providers: [PatternSharedDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

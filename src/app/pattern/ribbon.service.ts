@@ -39,7 +39,7 @@ export class RibbonService {
     }
 
     private getShape(threading: string, index: number) {
-        if (index % 4 === 0 && index !== 0 ) {
+        if (index % 4 === 0 && index !== 0) {
             return 0;
         }
 
@@ -52,9 +52,9 @@ export class RibbonService {
         }
 
         if (type === 1) {
-            return direction ? 1 : 2;
+            return direction ? 2 : 1;
         } else if (type === 2) {
-            return direction ? 4 : 3;
+            return direction ? 3 : 4;
         }
     }
 }

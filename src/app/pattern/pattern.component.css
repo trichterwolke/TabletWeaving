@@ -4,6 +4,10 @@ div.pattern-item {
     height: 24px;
 }
 
+div.threading {
+    cursor: default;
+}
+
 div.stripe {
     margin: 1px;
 }

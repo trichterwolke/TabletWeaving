@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col">    
-        <div class="palette-item" *ngFor="let color of palette"  [ngStyle]="{'background': color}">
+        <div  *ngFor="let color of palette; let i = index">
+            <div class="palette-item" (click)="setColorIndex(i)"   [ngStyle]="{'background': color}"></div>
         </div>
     </div>
 </div>

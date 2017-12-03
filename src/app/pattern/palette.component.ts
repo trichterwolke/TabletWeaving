@@ -4,6 +4,7 @@ import { OnInit } from '@angular/core';
 import { Tablet } from './tablet';
 import { Pattern } from './pattern';
 import { PatternService } from './pattern.service';
+import { PatternSharedDataService } from './pattern.shareddata.service'
 
 @Component({
     selector: 'palette',
@@ -13,10 +14,13 @@ import { PatternService } from './pattern.service';
 })
 export class PaletteComponent implements OnInit {
 
-    palette: string[];    
+    palette: string[];
 
-    constructor(private patternService: PatternService) {
+    constructor(
+        private patternService: PatternService, 
+        private patternSharedDataService: PatternSharedDataService) {
         this.patternService = patternService;
+        this.patternSharedDataService = patternSharedDataService;
     }
 
     loadPattern(): void {
@@ -26,5 +30,10 @@ export class PaletteComponent implements OnInit {
 
     ngOnInit(): void {
         this.loadPattern();
+    }
+
+    public setColorIndex(index: number): void {
+        console.info(index);
+        this.patternSharedDataService.setSelectedColorIndex(index);
     }
 }
