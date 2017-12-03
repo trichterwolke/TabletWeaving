@@ -33,4 +33,8 @@ export class PaletteComponent implements OnInit {
         console.info(index);
         this.editorService.setSelectedColorIndex(index);
     }
+
+    public getColorIndex(){
+        return this.editorService.getSelectedColorIndex();
+    }
 }

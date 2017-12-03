@@ -4,6 +4,10 @@ div.pattern-item {
     height: 24px;
 }
 
+div.pattern-item:hover {
+    opacity: 0.9;
+}
+
 div.threading {
     cursor: default;
 }
