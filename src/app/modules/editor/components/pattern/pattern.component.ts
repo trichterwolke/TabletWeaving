@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { Tablet } from '../../entities/tablet';
 import { Pattern } from '../../entities/pattern';

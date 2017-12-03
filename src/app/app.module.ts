@@ -3,23 +3,16 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { PatternComponent } from './modules/editor/components/pattern/pattern.component';
-import { PaletteComponent } from './modules/editor/components/palette//palette.component';
-import { RibbonComponent } from './modules/editor/components/ribbon/ribbon.component';
-import { EditorService } from './modules/editor/editor.service'
+import { EditorModule } from './modules/editor/editor.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PatternComponent,
-    PaletteComponent,
-    RibbonComponent
-  ],
+    AppComponent],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
-  ],
-  providers: [EditorService],
+    EditorModule,
+    NgbModule.forRoot()],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
