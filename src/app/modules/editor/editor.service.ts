@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
 
-import { Pattern } from './pattern';
-import { Tablet } from './tablet';
-import { Segment } from './segment';
-import { digest } from '@angular/compiler/src/i18n/serializers/xmb';
+import { Tablet } from './entities/tablet';
+import { Segment } from './entities/segment';
+import { Pattern } from './entities/pattern';
+
+import { PATTERNS } from './mock-patterns';
 
 @Injectable()
-export class RibbonService {
+export class EditorService {
+    findAll(): Promise<Pattern[]> {
+        return Promise.resolve(PATTERNS);
+    }
 
+    findByName(name: string): Promise<Pattern> {
+        return Promise.resolve(PATTERNS[1]);
+    }
+    
     createSegments(tablets: Tablet[]): Segment[][] {
         let result = new Array();
         for (let tablet of tablets) {
@@ -17,6 +25,18 @@ export class RibbonService {
 
         return result;
     }
+
+    private colorIndex = 0;
+    
+        public setSelectedColorIndex(index: number): void {
+            console.info('set' + this.colorIndex);
+            this.colorIndex = index;
+        }
+    
+        public getSelectedColorIndex(): number {
+            console.info('get' + this.colorIndex);
+            return this.colorIndex;
+        }        
 
     private createStripe(tablet: Tablet): Segment[] {
         let result = new Array();
@@ -57,12 +77,12 @@ export class RibbonService {
             return direction ? 3 : 4;
         }
     }
-}
 
-/*
-1.   2.   3.   4.
-/ |  | \  / |  | \
-| /  \ |  | |  | |
-          | |  | |
-          \ |  | /
-*/
+    /*
+    1.   2.   3.   4.
+    / |  | \  / |  | \
+    | /  \ |  | |  | |
+            | |  | |
+            \ |  | /
+    */
+}

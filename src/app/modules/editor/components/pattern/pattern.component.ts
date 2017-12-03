@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { Tablet } from './tablet'
-import { Pattern } from './pattern';
-import { PatternService } from './pattern.service';
-import { PatternSharedDataService } from './pattern.shareddata.service'
+import { Tablet } from '../../entities/tablet';
+import { Pattern } from '../../entities/pattern';
+import { EditorService } from '../../editor.service';
 
 @Component({
     selector: 'pattern',
-    providers: [PatternService],
+    providers: [],
     templateUrl: './pattern.component.html',
     styleUrls: ['./pattern.component.css']
 })
@@ -19,14 +18,13 @@ export class PatternComponent implements OnInit {
     palette: string[];
 
     constructor(
-        private patternService: PatternService,
-        private patternSharedDataService: PatternSharedDataService) {
+        private editorService: EditorService) {
         this.ordinals = ['D', 'C', 'B', 'A'];
-        this.patternService = patternService;
+        this.editorService = editorService;
     }
 
     loadPattern(): void {
-        this.patternService.findByName('indiffrent')
+        this.editorService.findByName('indiffrent')
             .then(r => {
                 this.tablets = r.tablets;
                 this.palette = r.palette;
@@ -38,9 +36,9 @@ export class PatternComponent implements OnInit {
     }
 
     setColor(tabletIndex: number, colorIndex: number): void {
-        console.info(colorIndex + ' ' + this.patternSharedDataService.getSelectedColorIndex());
+        console.info(colorIndex + ' ' + this.editorService.getSelectedColorIndex());
         this.tablets[tabletIndex].colors[colorIndex] =
-            this.patternSharedDataService.getSelectedColorIndex();
+            this.editorService.getSelectedColorIndex();
     }
 
     setThreading(tabletIndex: number): void {

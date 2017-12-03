@@ -1,5 +1,5 @@
-import { Pattern } from './pattern';
-import { Tablet } from './tablet';
+import { Pattern } from './entities/pattern';
+import { Tablet } from './entities/tablet';
 
 export const PATTERNS: Pattern[] = [
     {
