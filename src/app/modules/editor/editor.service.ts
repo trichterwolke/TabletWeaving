@@ -1,88 +1,43 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject'
 
 import { Tablet } from './entities/tablet';
 import { Segment } from './entities/segment';
 import { Pattern } from './entities/pattern';
 
-import { PATTERNS } from './mock-patterns';
-
 @Injectable()
-export class EditorService {
-    findAll(): Promise<Pattern[]> {
-        return Promise.resolve(PATTERNS);
-    }
-
-    findByName(name: string): Promise<Pattern> {
-        return Promise.resolve(PATTERNS[1]);
-    }
+export class EditorService {    
     
-    createSegments(tablets: Tablet[]): Segment[][] {
-        let result = new Array();
-        for (let tablet of tablets) {
-            let stripe = this.createStripe(tablet);
-            result.push(stripe);
-        }
-
-        return result;
+    public test(): void {
+        console.warn('test');
     }
 
-    private colorIndex = 0;
-    
-        public setSelectedColorIndex(index: number): void {
-            console.info('set' + this.colorIndex);
-            this.colorIndex = index;
-        }
-    
-        public getSelectedColorIndex(): number {
-            console.info('get' + this.colorIndex);
-            return this.colorIndex;
-        }        
+    private patternSubject = new Subject<Pattern>();
+    private pattern : Pattern; 
+    private selectedColorIndex = 0;
 
-    private createStripe(tablet: Tablet): Segment[] {
-        let result = new Array();
-        let index = 15;
-        let colorStep: number;
-        while (index >= 0) {
-            let length = tablet.colors.length;
-            let colorIndex = index % (length * 2) >= length
-                ? length - 1 - index % length
-                : index % length;
-
-            result.push({
-                color: tablet.colors[colorIndex],
-                shape: this.getShape(tablet.threading, index),
-            });
-            index--;
-        }
-
-        return result;
+    constructor() {
     }
 
-    private getShape(threading: string, index: number) {
-        if (index % 4 === 0 && index !== 0) {
-            return 0;
-        }
-
-        let direction = threading === 'S';
-
-        let type = index % 4 === 3 && index != 15 ? 2 : 1;
-
-        if (index % 8 > 4) {
-            direction = !direction;
-        }
-
-        if (type === 1) {
-            return direction ? 2 : 1;
-        } else if (type === 2) {
-            return direction ? 3 : 4;
-        }
+    public observePattern(): Observable<Pattern> {
+        return this.patternSubject.asObservable();
     }
 
-    /*
-    1.   2.   3.   4.
-    / |  | \  / |  | \
-    | /  \ |  | |  | |
-            | |  | |
-            \ |  | /
-    */
+    public setPattern(pattern: Pattern): void {
+        this.pattern = pattern;
+        this.refreshPattern();
+    }
+
+    public refreshPattern(): void {
+        this.patternSubject.next(this.pattern);
+    }
+
+    public setSelectedColorIndex(index: number): void {
+        this.selectedColorIndex = index;
+    }
+
+    public getSelectedColorIndex(): number {
+        return this.selectedColorIndex;
+    }
 }

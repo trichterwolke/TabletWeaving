@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
 
 import { Tablet } from '../../entities/tablet';
 import { Pattern } from '../../entities/pattern';
@@ -11,30 +10,18 @@ import { EditorService } from '../../editor.service';
     templateUrl: './palette.component.html',
     styleUrls: ['./palette.component.css']
 })
-export class PaletteComponent implements OnInit {
+export class PaletteComponent {
+    public palette: string[];
 
-    palette: string[];
-
-    constructor(
-        private editorService: EditorService) {
-        this.editorService = editorService;
-    }
-
-    loadPattern(): void {
-        this.editorService.findByName('whatever')
-            .then(r => this.palette = r.palette);
-    }
-
-    ngOnInit(): void {
-        this.loadPattern();
+    constructor(private editorService: EditorService) {
+        this.editorService.observePattern().subscribe(p => this.palette = p.palette);
     }
 
     public setColorIndex(index: number): void {
-        console.info(index);
         this.editorService.setSelectedColorIndex(index);
     }
 
-    public getColorIndex(){
+    public getColorIndex() {
         return this.editorService.getSelectedColorIndex();
     }
 }

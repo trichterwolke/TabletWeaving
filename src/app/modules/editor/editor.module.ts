@@ -11,6 +11,7 @@ import { PaletteComponent } from './components/palette//palette.component';
 import { RibbonComponent } from './components/ribbon/ribbon.component';
 import { EditorService } from './editor.service'
 import { NgModel } from '@angular/forms/src/directives/ng_model';
+import { RibbonService } from './components/ribbon/ribbon.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
   exports: [
     EditorComponent
   ],
-  providers: [EditorService],
+  providers: [
+    EditorService
+  ],
 })
 export class EditorModule { }

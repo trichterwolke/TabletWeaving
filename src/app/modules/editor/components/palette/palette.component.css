@@ -1,8 +1,12 @@
 div.palette-item {
     width: 30px;
     height: 30px;
-    margin: 3px;
+    margin: 3px;    
     border-radius: 50%;
+    /*
+    border-style:  solid;
+    border-width: 1px;
+    */
 }
 
 div.palette-item-container {
